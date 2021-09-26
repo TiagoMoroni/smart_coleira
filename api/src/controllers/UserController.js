@@ -37,7 +37,7 @@ module.exports = {
 
     async delete(req, res){
         const {userId} = req.params 
-        await models.User.destroy({where: {id: userId}}).then(function () {});
+        await models.User.destroy({where: {id: userId}});
         res.json("sucesso")
     }
 };

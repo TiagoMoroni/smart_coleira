@@ -18,7 +18,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      species: {
+      specie: {
         type: Sequelize.STRING
       },
       breed: {
