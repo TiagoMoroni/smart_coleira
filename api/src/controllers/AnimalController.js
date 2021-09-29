@@ -16,12 +16,11 @@ module.exports = {
     async store(req, res) {
         const { name, specie, breed, userId } = req.body;
 
-        const user = models.User.findByPk(userId)
+        const user = await models.User.findByPk(userId)
 
         if (!user) {
             return res.status(400).json({ error: 'User not found' });
         }
-
         const animal = await models.Animal.create({
             name, specie, breed, userId
         });
