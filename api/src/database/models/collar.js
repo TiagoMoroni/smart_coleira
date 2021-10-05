@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Animal, { foreignKey: 'animalId', as: 'animal' });
+      this.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
     }
   };
   Collar.init({

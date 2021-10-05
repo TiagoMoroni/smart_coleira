@@ -7,16 +7,20 @@ module.exports = {
     },
 
     async store(req, res) {
-        const { color, animalId } = req.body;
+        const { color, animalId, userId } = req.body;
 
         const animal = models.Animal.findByPk(animalId)
+        const user = models.User.findByPk(userId)
 
         if (!animal) {
             return res.status(400).json({ error: 'Animal not found' });
         }
+        if (!user) {
+            return res.status(400).json({ error: 'User not found' });
+        }
 
         const collar = await models.Collar.create({
-            color, animalId
+            color, animalId, userId
         });
 
 
